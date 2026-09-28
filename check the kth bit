@@ -1,0 +1,13 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+  int n,k;
+  scanf("%d\t%d",&n,&k);
+  int result =n^(1<<k);
+  printf("%d",!result);
+  return 0;
+}

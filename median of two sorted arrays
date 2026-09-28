@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int n,m,i=0,j=0,k=0;
+    float median;
+    scanf("%d%d",&n,&m);
+    int a[n],b[m],c[n+m];
+    for(int x=0; x<n; x++){
+        scanf("%d",&a[x]);
+    } 
+    for(int x=0; x<m; x++){
+        scanf("%d",&b[x]);
+    } 
+    while(i<n && j<m) {
+        if(a[i]<b[j]){
+            c[k]=a[i];
+            i++;
+            k++;
+        }
+        else{
+            c[k]=b[j];
+            j++;
+            k++;
+        }
+    } 
+    while(i<n){
+        c[k]=a[i];
+        i++;
+        k++;
+    }
+    while(j<m){
+        c[k]=b[j];
+        j++;
+        k++;
+    }
+    int total=m+n;
+    if((n+m)%2!=0){
+        median=c[(total)/2];
+    }
+    else{
+        median=(c[total/2]+c[(total/2)-1])/2.0;
+    }
+    printf("%.1f",median);
+    return 0;
+}

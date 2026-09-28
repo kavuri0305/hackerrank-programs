@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+
+int main() {
+    char s[100]; 
+    
+
+    scanf("%99s", s); 
+        
+    
+    int n = strlen(s);
+    
+    for (int p = 1; p <= n; p++) {
+        int is_period = 1;
+        
+        
+        for (int i = p; i < n; i++) {
+            if (s[i] != s[i % p]) {
+                is_period = 0;
+                break;
+            }
+        }
+        
+       
+        if (is_period) {
+            printf("%d\n", p);
+            return 0;       }
+    }
+    
+    return 0;
+}
+
+       

@@ -1,0 +1,43 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+int n,i=0,j=0,k=0;
+scanf("%d",&n);
+int arr[n];
+for(int i=0; i<n; i++)
+scanf("%d",&arr[i]);
+int m;
+scanf("%d",&m);
+int a[m];
+for(int i=0; i<m; i++)
+scanf("%d",&a[i]);
+int result[m+n];
+while(i<n && j<m){
+    if(arr[i]<a[j]){
+        result[k]=arr[i];
+        i++;
+        k++;
+    }
+    else{
+        result[k]=a[j];
+        j++;
+        k++;
+           }
+}
+while(i<n){
+    result[k]=arr[i];
+    i++;
+    k++;
+}
+while(j<m){
+    result[k]=a[j];
+    j++;
+    k++;
+}
+for(int i=0; i<m+n; i++)
+printf("%d\t",result[i]);
+return 0;
+}

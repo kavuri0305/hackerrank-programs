@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+
+int main() {
+
+    int i, j, count_max = 0;
+    scanf("%d%d", &i, &j);
+
+    for (int k = i; k <= j; k++) {
+        int temp = k; 
+        int count_present = 1; 
+        while (temp != 1) {
+            if (temp % 2 == 0) {
+                temp = temp / 2; 
+            } else {
+                temp = (3 * temp) + 1; 
+            }
+            count_present++;   
+        }
+        
+        if (count_present > count_max) {
+            count_max = count_present;
+        }
+    }
+    
+    printf("%d\t%d\t%d\n", i, j, count_max);   
+    return 0;
+}

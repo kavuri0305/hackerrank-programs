@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <string.h>
+#include <math.h>
+#include <stdlib.h>
+int binarygcd(int a, int b){
+int count=0;
+if(a==0)
+return b;
+if(b==0)
+return a;
+while(a%2==0 && b%2==0)
+ {
+ a=a/2;
+ b=b/2;
+ count++;
+ }
+while(a!=b){
+if(a>b)
+ a=(a-b);
+else
+  b=(b-a);
+  while(a%2==0)
+   a=a/2;
+   while(b%2==0)
+   b=b/2;    
+ } 
+  if(count!=0)
+  return count*2*a;
+  else
+   return a; 
+}   
+int main() {
+int a,b,q,r;
+scanf("%d%d",&a,&b);
+ int gcd=binarygcd(a,b);
+ int s1=1,s2=0,t1=0,t2=1;
+ int s,t;
+    while (b != 0) {
+ q = a / b;
+ r = a % b;  
+ a = b;
+  b = r;
+s = s1 - q * s2;
+t = t1 - q * t2;   
+s1 = s2;
+ s2 =s;
+t1 = t2;
+ t2 = t;
+ }
+s = s1;
+t = t1;
+  printf("%d %d %d",s1,t1,gcd);  
+return 0;
+     }
+    
+    
+
+

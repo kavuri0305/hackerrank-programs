@@ -1,0 +1,24 @@
+s = input()
+
+seen = 0
+dup = 0
+
+for c in s:
+    bit = 1 << (ord(c) - ord('a'))
+
+    if seen & bit:
+        dup |= bit
+    else:
+        seen |= bit
+
+ans = []
+
+for c in s:
+    bit = 1 << (ord(c) - ord('a'))
+    if dup & bit and c not in ans:
+        ans.append(c)
+
+if ans:
+    print(*ans)
+else:
+    print("No duplicates")
